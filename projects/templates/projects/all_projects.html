@@ -1,4 +1,41 @@
 {% include 'base.html' %}
 {% block content %}
     <h2>These are all projects</h2>
+    <table class="">
+        <thead>
+        <tr>
+            <td>#
+                <hr>
+            </td>
+            <td>Name
+                <hr>
+            </td>
+            <td>Description
+                <hr>
+            </td>
+            <td>Tag
+                <hr>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ forloop.counter }}
+                    <hr>
+                </td>
+                <td><a href="{% url 'projects:project' project.id%}">{{ project.title }}</a>
+                    <hr>
+                </td>
+                <td>{{ project.description }}
+                    <hr>
+                </td>
+                <td>{{ project.tags.all }}
+                    <hr>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

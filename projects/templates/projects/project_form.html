@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+{% block content %}
+    <h2>These are all projects</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+{#        {% for field in form %}#}
+{#            {{ field.label }}#}
+{#            {{ field }}#}
+{#            <br>#}
+{#        {% endfor %}#}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

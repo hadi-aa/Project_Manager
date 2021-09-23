@@ -1,4 +1,14 @@
 {% include 'base.html' %}
 {% block content %}
     <h2>This is project page</h2>
+    <h1>{{ project_object }}</h1>
+    <hr>
+    <h3>{{ project_object.description }}</h3>
+    {% for tag in project_object.tags.all %}
+        <span class="">{{ tag }}</span>
+    {% endfor %}
+    <hr>
+    <a href="{% url 'projects:update_project' project_object.id %}">Edit</a>
+    <br>
+    <a href="{% url 'projects:delete_project' project_object.id %}">Delete</a>
 {% endblock %}
