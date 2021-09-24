@@ -7,7 +7,7 @@ class Project(models.Model):
     # owner
     title = models.CharField(max_length=200, blank=False, null=False)
     description = models.TextField(blank=True, null=True)
-    # feature_image
+    featured_image = models.ImageField(null=True, blank=True, default='default.jpg')
     demo_link = models.CharField(max_length=1000, blank=True, null=True)
     source_link = models.CharField(max_length=1000, blank=True, null=True)
     vote_total = models.IntegerField(default=0)
@@ -35,6 +35,7 @@ class Review(models.Model):
 
     def __str__(self):
         return self.value
+
 
 
 class Tag(models.Model):

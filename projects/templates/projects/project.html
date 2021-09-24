@@ -1,8 +1,11 @@
 {% include 'base.html' %}
 {% block content %}
-    <h2>This is project page</h2>
-    <h1>{{ project_object }}</h1>
+    <h2>{{ project_object }}</h2>
     <hr>
+    {% if project_object.featured_image %}
+        <img src="{{ project_object.featured_image.url }}" alt="{{ project_object }}">
+        <hr>
+    {% endif %}
     <h3>{{ project_object.description }}</h3>
     {% for tag in project_object.tags.all %}
         <span class="">{{ tag }}</span>
